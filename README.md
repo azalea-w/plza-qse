@@ -13,7 +13,7 @@ A *very* simple save editor for PLZA for changing gender and Trainer ID using [p
 
 1. Dump your save file using JKSV or similar
 2. Copy your save file to your PC
-3. Download latest release ZIP from the [Releases](https://github.com/azalea-w/plza-recovery/releases) Section
+3. Download latest release ZIP from the [Releases](https://github.com/azalea-w/plza-qse/releases) Section
 4. Open your shell (powershell or cmd for windows)
 5. Run the Script like `python <path/to/main.py>`!
 
