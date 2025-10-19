@@ -40,8 +40,7 @@ def main():
     {core_data}
     Options (Input the option number):
         1: Trainer ID
-        2: Gender
-        3: Quit
+        2: Quit
     """)
 
         option = input(">>> ").strip()
@@ -49,8 +48,8 @@ def main():
         if option not in ["1", "2", "3"]:
             print("Invalid Option Picked!")
 
-        if option == "3": return
-        if option == "2":
+        if option == 2: return
+        if option == ...:
             core_data.set_sex(int(not core_data.get_sex()))
             print("Gender Swapped!")
             input("> Press Enter to return to the Menu <")
