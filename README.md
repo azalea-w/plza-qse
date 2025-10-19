@@ -3,8 +3,11 @@
 
 ---
 
+## NOTE: DO NOT USE THIS CURRENTLY! I'M STILL TESTING!
+
 ## What's this?
 A *very* simple save editor for PLZA for changing gender and Trainer ID using [plza-save-utils](https://github.com/azalea-w/plza-save-utils)
+
 
 ## Dependencies
 - Python 3.13 (other versions of Python 3 should work too)
