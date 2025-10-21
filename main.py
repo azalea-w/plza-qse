@@ -1,8 +1,11 @@
 import os
+from pathlib import Path
 import sys
 
 from lib.plaza.crypto import HashDB, SwishCrypto
-from lib.plaza.types import HashDBKeys, UserDataSaveDataAccessor
+from lib.plaza.types import HashDBKeys, UserDataSaveDataAccessor, CopyDressUpSaveData
+
+SRC_PATH = Path(__file__).parent
 
 save_file_magic = bytes([
     0x17, 0x2D, 0xBB, 0x06, 0xEA
@@ -40,7 +43,8 @@ def main():
     {core_data}
     Options (Input the option number):
         1: Trainer ID
-        2: Quit
+        2: Gender (Will reset your current clothes)
+        3: Quit
     """)
 
         option = input(">>> ").strip()
@@ -48,10 +52,16 @@ def main():
         if option not in ["1", "2", "3"]:
             print("Invalid Option Picked!")
 
-        if option == 2: return
-        if option == ...:
+        if option == "3": return
+        if option == "2":
             core_data.set_sex(int(not core_data.get_sex()))
-            print("Gender Swapped!")
+            if core_data.get_sex() == 0:
+                data_path = SRC_PATH / "valid_blocks" / "dressup_male_data.bin"
+            else:
+                data_path = SRC_PATH / "valid_blocks" / "dressup_female_data.bin"
+            with open(data_path, "rb") as data_file:
+                hash_db[HashDBKeys.DressUp].change_data(data_file.read())
+            print(f"Gender Swapped to {'male' if not core_data.get_sex() else 'female'}!")
             input("> Press Enter to return to the Menu <")
             return menu_loop()
         if option == "1":
